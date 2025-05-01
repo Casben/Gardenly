@@ -11,7 +11,7 @@ import SwiftUI
 struct GardenlyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VegetableListScreen()
         }
     }
 }

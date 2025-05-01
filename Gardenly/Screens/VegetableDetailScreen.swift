@@ -32,14 +32,6 @@ struct VegetableDetailScreen: View {
                 .frame(maxWidth: .infinity, maxHeight: 300)
                 .padding(.bottom, 8)
                 
-                // Vegetable Name
-                
-                Text(vegetable.name)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
                 // Description
                 Text(vegetable.body)
                     .font(.body)
@@ -75,6 +67,7 @@ struct VegetableDetailScreen: View {
             }
             .padding()
         }
+        .navigationTitle(vegetable.name)
     }
     
     struct SectionHeader: View {

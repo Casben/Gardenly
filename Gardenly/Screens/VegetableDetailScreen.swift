@@ -54,8 +54,37 @@ struct VegetableDetailScreen: View {
                     .fontWeight(.bold)
                 
                 DetailRow(icon: "leaf", title: "Seed Depth", value: vegetable.seedDepth)
+                DetailRow(icon: "thermometer", title: "Germination Temp", value: vegetable.germinationSoilTemp)
+                                DetailRow(icon: "calendar", title: "Days to Germination", value: "\(vegetable.daysToGermination) days")
+                                DetailRow(icon: "sun.max", title: "Light Requirement", value: vegetable.light)
+                                DetailRow(icon: "drop", title: "Watering", value: vegetable.watering)
+                                DetailRow(icon: "leaf.arrow.triangle.circlepath", title: "Companions", value: vegetable.goodCompanions)
+                                DetailRow(icon: "exclamationmark.triangle", title: "Bad Companions", value: vegetable.badCompanions)
+                
+                Divider()
+                
+                SectionHeader(title: "Growing Tips")
+                Text(vegetable.growingDescription)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                
+                SectionHeader(title: "Harvest Tips")
+                Text(vegetable.harvestDescription)
+                    .font(.body)
+                    .foregroundColor(.secondary)
             }
             .padding()
+        }
+    }
+    
+    struct SectionHeader: View {
+        let title: String
+        
+        var body: some View {
+            Text(title)
+                .font(.headline)
+                .foregroundColor(.primary)
+                .padding(.top)
         }
     }
     

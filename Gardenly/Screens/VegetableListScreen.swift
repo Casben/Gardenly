@@ -11,7 +11,7 @@ struct VegetableListScreen: View {
     @State private var vegetables: [Vegetable] = []
     var body: some View {
         List(vegetables) { vegetable in
-            Text(vegetable.name)
+            VegetableCellView(vegetable: vegetable)
         }
         .listStyle(.plain)
         .task {
@@ -23,10 +23,13 @@ struct VegetableListScreen: View {
             }
             
         }
-        .padding()
+        .navigationTitle("Vegetables")
+//        .padding()
     }
 }
 
 #Preview {
-    VegetableListScreen()
+    NavigationStack {
+        VegetableListScreen()
+    }
 }

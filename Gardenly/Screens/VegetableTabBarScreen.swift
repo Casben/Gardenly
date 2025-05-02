@@ -19,7 +19,7 @@ struct VegetableTabBarScreen: View {
             }
             
             NavigationStack {
-                Text("MyGardenScreen")
+                MyGardenScreen()
             }
             .tabItem {
                 Image(systemName: "house")

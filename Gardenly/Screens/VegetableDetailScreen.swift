@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct VegetableDetailScreen: View {
     let vegetable: Vegetable
     @State private var showSeedOrSeedlingMenu = false
+    
+    private func saveVegetableToMyGarden(with plantOption: PlantOption) {
+        
+    }
     
     var body: some View {
         ScrollView {
@@ -83,7 +88,7 @@ struct VegetableDetailScreen: View {
         }
         .sheet(isPresented: $showSeedOrSeedlingMenu, content: {
             SeedOrSeedlingView(onSelected: { option in
-                
+                saveVegetableToMyGarden(with: option)
             })
             .presentationDetents([.fraction(0.25)])
             .presentationBackground(Color(.systemGray6))
@@ -129,5 +134,5 @@ struct VegetableDetailScreen: View {
 #Preview {
     NavigationStack {
         VegetableDetailScreen(vegetable: PreviewData.loadVegetables()[0])
-    }
+    }.modelContainer(previewContainer)
 }

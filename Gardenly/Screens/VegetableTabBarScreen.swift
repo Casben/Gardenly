@@ -39,4 +39,5 @@ struct VegetableTabBarScreen: View {
 
 #Preview {
     VegetableTabBarScreen()
+        .modelContainer(previewContainer)
 }

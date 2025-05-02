@@ -13,8 +13,10 @@ struct MyGardenScreen: View {
     
     var body: some View {
         List(myGardenVegetables) { myGardenVegetable in
-            Text(myGardenVegetable.vegetable.name)
+            MyGardenCellView(myGardenVegetable: myGardenVegetable)
         }
+        .listStyle(.plain)
+        .navigationTitle("My Garden")
     }
 }
 

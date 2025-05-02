@@ -15,9 +15,8 @@ class MyGardenVegetable {
     var plantOption: PlantOption
     var datePlanted: Date = Date()
     
-    init(vegetable: Vegetable, plantOption: PlantOption, datePlanted: Date) {
+    init(vegetable: Vegetable, plantOption: PlantOption) {
         self.vegetable = vegetable
         self.plantOption = plantOption
-        self.datePlanted = datePlanted
     }
 }

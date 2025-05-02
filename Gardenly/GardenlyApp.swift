@@ -12,6 +12,7 @@ struct GardenlyApp: App {
     var body: some Scene {
         WindowGroup {
             VegetableTabBarScreen()
+                .modelContainer(<#T##container: ModelContainer##ModelContainer#>)
         }
     }
 }

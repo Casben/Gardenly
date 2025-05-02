@@ -82,7 +82,11 @@ struct VegetableDetailScreen: View {
             }
         }
         .sheet(isPresented: $showSeedOrSeedlingMenu, content: {
-            
+            SeedOrSeedlingView(onSelected: { option in
+                
+            })
+            .presentationDetents([.fraction(0.25)])
+            .presentationBackground(Color(.systemGray6))
         })
         .navigationTitle(vegetable.name)
     }

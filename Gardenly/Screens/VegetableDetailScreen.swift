@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VegetableDetailScreen: View {
     let vegetable: Vegetable
+    @State private var showSeedOrSeedlingMenu = false
     
     var body: some View {
         ScrollView {
@@ -66,7 +67,23 @@ struct VegetableDetailScreen: View {
                     .foregroundColor(.secondary)
             }
             .padding()
+            
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSeedOrSeedlingMenu = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title2)
+                            .foregroundColor(.green)
+                    }
+
+                }
+            }
         }
+        .sheet(isPresented: $showSeedOrSeedlingMenu, content: {
+            
+        })
         .navigationTitle(vegetable.name)
     }
     
@@ -106,5 +123,7 @@ struct VegetableDetailScreen: View {
     }
 }
 #Preview {
-    VegetableDetailScreen(vegetable: PreviewData.loadVegetables()[0])
+    NavigationStack {
+        VegetableDetailScreen(vegetable: PreviewData.loadVegetables()[0])
+    }
 }

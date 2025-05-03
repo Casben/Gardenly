@@ -43,10 +43,20 @@ struct HarvestCountDownView: View {
                 )
                 .rotationEffect(.degrees(-90))
                 .animation(.easeInOut(duration: 0.5), value: progress)
+            
+            VStack(spacing: 2) {
+                Text("\(daysRemaining)")
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                Text("Days")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }
 
 #Preview {
-    HarvestCountDownView(plantingDate: Date(), harvestingDays: 90)
+    HarvestCountDownView(plantingDate: Date().daysAgo(30), harvestingDays: 90)
 }

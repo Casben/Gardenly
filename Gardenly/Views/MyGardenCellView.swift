@@ -69,7 +69,7 @@ struct MyGardenCellView: View {
             Spacer()
             
             // HarvestCountDownView
-            
+            HarvestCountDownView(plantingDate: myGardenVegetable.datePlanted, harvestingDays: myGardenVegetable.daysToHarvest)
         }
         .padding()
     }

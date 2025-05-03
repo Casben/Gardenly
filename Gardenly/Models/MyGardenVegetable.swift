@@ -19,4 +19,8 @@ class MyGardenVegetable {
         self.vegetable = vegetable
         self.plantOption = plantOption
     }
+    
+    var daysToHarvest: Int {
+        plantOption == .seed ? vegetable.daysToHarvestSeeds : vegetable.daysToHarvestSeedlings
+    }
 }

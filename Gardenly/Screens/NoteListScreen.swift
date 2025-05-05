@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NoteListScreen: View {
     
@@ -29,8 +30,11 @@ struct NoteListScreen: View {
     }
 }
 
-#Preview {
+#Preview(traits: .sampleData) {
+    
+    @Previewable @Query var myGardenVegetables: [MyGardenVegetable]
+    
     NavigationStack {
-        NoteListScreen(myGardenVegetable: MyGardenVegetable(vegetable: PreviewData.loadVegetables()[0], plantOption: .seed))
+        NoteListScreen(myGardenVegetable: myGardenVegetables[0])
     }
 }

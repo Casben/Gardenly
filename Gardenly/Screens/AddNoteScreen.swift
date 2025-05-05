@@ -42,7 +42,6 @@ struct AddNoteScreen: View {
     private func saveNote() {
         let note = Note(title: noteTitle, body: noteBody)
         myGardenVegetable.notes?.append(note)
-        context.insert(note)
         try? context.save()
     }
 }

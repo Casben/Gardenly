@@ -81,8 +81,10 @@ struct AddNoteScreen: View {
     
     private func saveNote() {
         let note = Note(title: noteTitle, body: noteBody)
+        note.photo = imageData
         myGardenVegetable.notes?.append(note)
         try? context.save()
+        dismiss()
     }
 }
 

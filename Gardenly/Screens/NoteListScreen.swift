@@ -14,7 +14,9 @@ struct NoteListScreen: View {
     @State private var addNotePresented = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(myGardenVegetable.notes ?? []) { note in
+            Text(note.title)
+        }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add Note") {

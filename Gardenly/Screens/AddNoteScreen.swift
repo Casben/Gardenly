@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddNoteScreen: View {
     let myGardenVegetable: MyGardenVegetable
@@ -46,7 +47,9 @@ struct AddNoteScreen: View {
     }
 }
 
-#Preview {
-    AddNoteScreen(myGardenVegetable: MyGardenVegetable(vegetable: PreviewData.loadVegetables()[0], plantOption: .seed))
-        .modelContainer(previewContainer)
+#Preview(traits: .sampleData) {
+    
+    @Previewable @Query var myGardgenVegetables: [MyGardenVegetable]
+    
+    AddNoteScreen(myGardenVegetable: myGardgenVegetables[0])
 }

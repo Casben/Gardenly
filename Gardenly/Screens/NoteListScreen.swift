@@ -27,6 +27,7 @@ struct NoteListScreen: View {
                 Text(note.title)
             }
         }
+        .navigationTitle(myGardenVegetable.vegetable.name)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add Note") {

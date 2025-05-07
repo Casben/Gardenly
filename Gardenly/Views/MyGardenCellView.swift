@@ -63,6 +63,8 @@ struct MyGardenCellView: View {
                 HStack {
                     Image(systemName: myGardenVegetable.plantOption.icon)
                         .foregroundStyle(.green)
+                    Image(systemName: myGardenVegetable.notes?.isEmpty == false ? "list.clipboard" : "")
+                        .foregroundStyle(.green)
                 }
             }
             

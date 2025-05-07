@@ -22,6 +22,10 @@ struct AddNoteScreen: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
+    private var isFormValid: Bool {
+        !noteTitle.isEmptyOrWhiteSpace && !noteBody.isEmptyOrWhiteSpace
+    }
+    
     var body: some View {
         Form {
             TextField("Title", text: $noteTitle)
@@ -31,7 +35,6 @@ struct AddNoteScreen: View {
             HStack(spacing: 20) {
                 
                 Button {
-                    // action
                     if UIImagePickerController.isSourceTypeAvailable(.camera) {
                         isCameraSelected = true
                     }
@@ -92,8 +95,7 @@ struct AddNoteScreen: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Save") {
                     saveNote()
-                }
-                
+                }.disabled(!isFormValid)
             }
         }
     }

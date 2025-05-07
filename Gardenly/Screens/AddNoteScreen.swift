@@ -17,6 +17,7 @@ struct AddNoteScreen: View {
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
     @State private var uiImage: UIImage?
     @State private var imageData: Data?
+    @State private var isCameraSelected: Bool = false
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
@@ -28,6 +29,23 @@ struct AddNoteScreen: View {
                 .frame(minHeight: 200)
             
             HStack(spacing: 20) {
+                
+                Button {
+                    // action
+                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                        isCameraSelected = true
+                    }
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color.green.opacity(0.2))
+                            .frame(width: 60, height: 60)
+                        Image(systemName: "camera.fill")
+                            .font(.title)
+                            .foregroundColor(.green)
+                    }
+                }
+                
                 PhotosPicker(selection: $selectedPhotoItem, matching: .images, photoLibrary: .shared()) {
                     ZStack {
                         Circle()
@@ -62,6 +80,7 @@ struct AddNoteScreen: View {
                 }
             }
         }
+        .navigationTitle("\(myGardenVegetable.vegetable.name) Note")
         .toolbar {
             
             ToolbarItem(placement: .topBarLeading) {
@@ -91,6 +110,8 @@ struct AddNoteScreen: View {
 #Preview(traits: .sampleData) {
     
     @Previewable @Query var myGardgenVegetables: [MyGardenVegetable]
+    NavigationStack {
+        AddNoteScreen(myGardenVegetable: myGardgenVegetables[0])
+    }
     
-    AddNoteScreen(myGardenVegetable: myGardgenVegetables[0])
 }

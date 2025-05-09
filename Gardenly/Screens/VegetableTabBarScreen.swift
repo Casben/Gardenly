@@ -44,7 +44,6 @@ struct VegetableTabBarScreen: View {
             } catch {
                 print(error.localizedDescription)
             }
-            
         }
     }
 }

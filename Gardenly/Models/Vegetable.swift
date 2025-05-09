@@ -36,6 +36,9 @@ class Vegetable: Decodable {
     var daysToHarvestSeedlings: Int
     var healthBenefits: String
     
+    @Relationship(deleteRule: .nullify)
+    var pests: [Pest]?
+    
     required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)

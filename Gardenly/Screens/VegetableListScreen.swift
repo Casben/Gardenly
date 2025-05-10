@@ -10,9 +10,18 @@ import SwiftUI
 struct VegetableListScreen: View {
     
     let vegetables: [Vegetable]
+    @State private var search: String = ""
+    
+    private var filteredVegetables: [Vegetable] {
+        if search.isEmptyOrWhiteSpace {
+            return vegetables
+        } else {
+            return vegetables.filter { $0.name.localizedCaseInsensitiveContains(search) }
+        }
+    }
     
     var body: some View {
-        List(vegetables) { vegetable in
+        List(filteredVegetables) { vegetable in
             NavigationLink {
                 VegetableDetailScreen(vegetable: vegetable)
             } label: {
@@ -20,12 +29,13 @@ struct VegetableListScreen: View {
             }
            
         }
+        .searchable(text: $search)
         .listStyle(.plain)
         .navigationTitle("Vegetables")
     }
 }
 
-#Preview {
+#Preview(traits: .sampleData) {
     NavigationStack {
         VegetableListScreen(vegetables: PreviewData.loadVegetables())
     }

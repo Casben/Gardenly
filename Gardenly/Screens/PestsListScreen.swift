@@ -17,6 +17,6 @@ struct PestsListScreen: View {
     }
 }
 
-#Preview {
-    PestsListScreen(pests: [])
+#Preview(traits: .sampleData) {
+    PestsListScreen(pests: PreviewData.loadPests())
 }

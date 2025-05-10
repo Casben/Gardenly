@@ -12,11 +12,16 @@ struct PestsListScreen: View {
     
     var body: some View {
         List(pests) { pest in
-            Text(pest.name)
+            PestCellView(pest: pest)
         }
+        .listStyle(.plain)
+        .navigationTitle("Pests")
     }
 }
 
 #Preview(traits: .sampleData) {
-    PestsListScreen(pests: PreviewData.loadPests())
+    NavigationStack {
+        PestsListScreen(pests: PreviewData.loadPests())
+    }
+    
 }

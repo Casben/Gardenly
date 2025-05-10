@@ -70,6 +70,10 @@ struct VegetableDetailScreen: View {
                                 DetailRow(icon: "leaf.arrow.triangle.circlepath", title: "Companions", value: vegetable.goodCompanions)
                                 DetailRow(icon: "exclamationmark.triangle", title: "Bad Companions", value: vegetable.badCompanions)
                 
+                if let pests = vegetable.pests, pests.count > 0 {
+                    DetailRow(icon: "ladybug", title: "Pests", value: pests.map { $0.name }.joined(separator: ", "))
+                }
+                
                 Divider()
                 
                 SectionHeader(title: "Growing Tips")
@@ -142,8 +146,8 @@ struct VegetableDetailScreen: View {
         }
     }
 }
-#Preview {
+#Preview(traits: .sampleData) {
     NavigationStack {
         VegetableDetailScreen(vegetable: PreviewData.loadVegetables()[0])
-    }.modelContainer(previewContainer)
+    }
 }

@@ -16,6 +16,7 @@ struct MyGardenScreen: View {
         offsets.forEach { index in
             let myGardenVegetables = myGardenVegetables[index]
             context.delete(myGardenVegetables)
+            try? context.save()
         }
     }
     var body: some View {

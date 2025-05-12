@@ -15,12 +15,22 @@ struct NoteListScreen: View {
     @Environment(\.modelContext) private var context
     
     var body: some View {
-        List {
-            ForEach(myGardenVegetable.notes ?? []) { note in
-                NoteCellView(note: note, placeHolderImage: myGardenVegetable.vegetable.thumbnailImage)
+        
+        Group {
+            if let notes = myGardenVegetable.notes, notes.count > 0 {
+                List {
+                    ForEach(myGardenVegetable.notes ?? []) { note in
+                        NoteCellView(note: note, placeHolderImage: myGardenVegetable.vegetable.thumbnailImage)
+                    }
+                    .onDelete(perform: deleteNote)
+                }
+                .listStyle(.plain)
+            } else {
+                ContentUnavailableView("No notes found", systemImage: "heart")
             }
-            .onDelete(perform: deleteNote)
         }
+        
+        
         .navigationTitle(myGardenVegetable.vegetable.name)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

@@ -12,13 +12,6 @@ struct MyGardenScreen: View {
     @Query private var myGardenVegetables: [MyGardenVegetable]
     @Environment(\.modelContext) private var context
     
-    private func deleteMyGardenVegetable(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let myGardenVegetables = myGardenVegetables[index]
-            context.delete(myGardenVegetables)
-            try? context.save()
-        }
-    }
     var body: some View {
         List {
             ForEach(myGardenVegetables) { myGardenVegetable in
@@ -33,6 +26,14 @@ struct MyGardenScreen: View {
         }
         .listStyle(.plain)
         .navigationTitle("My Garden")
+    }
+    
+    private func deleteMyGardenVegetable(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let myGardenVegetables = myGardenVegetables[index]
+            context.delete(myGardenVegetables)
+            try? context.save()
+        }
     }
 }
 

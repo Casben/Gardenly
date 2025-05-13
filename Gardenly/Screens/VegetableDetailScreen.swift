@@ -64,11 +64,11 @@ struct VegetableDetailScreen: View {
                 
                 DetailRow(icon: "leaf", title: "Seed Depth", value: vegetable.seedDepth)
                 DetailRow(icon: "thermometer", title: "Germination Temp", value: vegetable.germinationSoilTemp)
-                                DetailRow(icon: "calendar", title: "Days to Germination", value: "\(vegetable.daysToGermination) days")
-                                DetailRow(icon: "sun.max", title: "Light Requirement", value: vegetable.light)
-                                DetailRow(icon: "drop", title: "Watering", value: vegetable.watering)
-                                DetailRow(icon: "leaf.arrow.triangle.circlepath", title: "Companions", value: vegetable.goodCompanions)
-                                DetailRow(icon: "exclamationmark.triangle", title: "Bad Companions", value: vegetable.badCompanions)
+                DetailRow(icon: "calendar", title: "Days to Germination", value: "\(vegetable.daysToGermination) days")
+                DetailRow(icon: "sun.max", title: "Light Requirement", value: vegetable.light)
+                DetailRow(icon: "drop", title: "Watering", value: vegetable.watering)
+                DetailRow(icon: "leaf.arrow.triangle.circlepath", title: "Companions", value: vegetable.goodCompanions)
+                DetailRow(icon: "exclamationmark.triangle", title: "Bad Companions", value: vegetable.badCompanions)
                 
                 if let pests = vegetable.pests, pests.count > 0 {
                     DetailRow(icon: "ladybug", title: "Pests", value: pests.map { $0.name }.joined(separator: ", "))

@@ -37,7 +37,7 @@ struct VegetableListScreen: View {
                         .tint(.green)
                     }
             }
-           
+            
         }
         .sheet(item: $selectedVegetable, content: { selectedVegetable in
             SeedOrSeedlingView(onSelected: { plantOption in

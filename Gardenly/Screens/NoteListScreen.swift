@@ -29,8 +29,6 @@ struct NoteListScreen: View {
                 ContentUnavailableView("No notes found", systemImage: "heart")
             }
         }
-        
-        
         .navigationTitle(myGardenVegetable.vegetable.name)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
